@@ -12,32 +12,18 @@
 
 #include <stdio.h>
 
-int	ft_isalpha(char *str)
+int	ft_isalpha(int c)
 {
-	int	i;
-
-	i = 0;
-	while(str[i])
-	{
-		if (!((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')))
-			return (0);
-		i++;
-	}
-	return (1);	
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);	
 }
 
 int main()
 {
+	printf("Test1: %d\n", ft_isalpha('a')); 
+	printf("Test2: %d\n", ft_isalpha('.')); 
+	printf("Test3: %d\n", ft_isalpha('G')); 
+	printf("Test4: %d\n", ft_isalpha('1'));
 
-	char *test1 = "HelloWord";
-	char *test2 = "Hello458";
-	char *test3 = "AMIGUITOS";
-	char *test4 = "1234";
-
-	printf("Test1: %d\n", ft_isalpha(test1)); 
-	printf("Test2: %d\n", ft_isalpha(test2)); 
-	printf("Test3: %d\n", ft_isalpha(test3)); 
-	printf("Test4: %d\n", ft_isalpha(test4));
-
-	return 0;
 }

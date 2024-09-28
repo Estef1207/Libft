@@ -12,32 +12,17 @@
 
 #include <stdio.h>
 
-int	ft_isascii(char *str)
+int	ft_isascii(int c)
 {
-	int	i;
-
-	i = 0;
-	while(str[i] != '\0')
-	{
-		if (!(str[i] >= 0 && str[i] <= 127))
-			return (0);
-		i++;
-	}
-	return (1);	
+	if (c >= 0 && c <= 127)
+			return (1);
+	return (0);	
 }
 
 int main()
 {
-
-	char *test1 = "Hello	Word";
-	char *test2 = "856He/llo458";
-	char *test3 = "3400€ mensuales";
-	char *test4 = "Si que funciona CoÑo";
-
-	printf("Test1: %d\n", ft_isascii(test1)); 
-	printf("Test2: %d\n", ft_isascii(test2)); 
-	printf("Test3: %d\n", ft_isascii(test3)); 
-	printf("Test4: %d\n", ft_isascii(test4));
-
-	return 0;
+	printf("Test1: %d\n", ft_isascii('?')); 
+	printf("Test2: %d\n", ft_isascii('s')); 
+	printf("Test3: %d\n", ft_isascii('Í')); 
+	printf("Test4: %d\n", ft_isascii('.'));
 }

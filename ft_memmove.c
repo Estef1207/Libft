@@ -11,28 +11,42 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stddef.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	
-	unsigned char	*p;
+	unsigned char	*d;
+	const unsigned char	*s;
+	size_t i;	
 
-	p = (unsigned char *)s;
-	while(n > 0)
+	i = 0;
+	s = (const unsigned char *)src;
+	d = (unsigned char *)dest;
+	if (d < s)	
 	{
-		*p = (unsigned char)c;
-		p++;
-		n--;
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
 	}
-	return (s);
+	else if (d > s)
+	{
+		while (n > 0)
+		{
+			n--;			
+			d[n] = s[n];
+		}
+	}
+	return (dest);
 }
 
 int	main(void)
 {
-	char test1[15] = "Hello Word";
-    char x = 'f';
-
-    ft_memset(test1, x, 3);
-    printf("%s\n", test1);
+	char origen[] = "Hello Word, I love Y";
+	char destino[25] = " ";
+ 
+    ft_memmove(destino, origen, 9);
+    printf("la cadena copiada es %s\n", destino);
     return 0;
 }

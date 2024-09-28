@@ -13,17 +13,17 @@
 #include <stdio.h>
 #include <stddef.h>
 
-void	bzero(void *s, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
 	
 	unsigned char	*p;
 
 	p = (unsigned char *)s;
-	while(len > 0)
+	while(n > 0)
 	{
 		*p = 0;
 		p++;
-		len--;
+		n--;
 	}
 }
 
@@ -31,7 +31,7 @@ int	main(void)
 {
 	char test1[15] = "Hello Word";
  
-    bzero(test1, 1);
-    printf("%s\n", test1);
+    ft_bzero(test1, 2);
+    printf("el resultado es: %s\n", test1);
     return 0;
 }
