@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esmeza-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 20:25:43 by esmeza-s          #+#    #+#             */
-/*   Updated: 2024/09/30 20:25:45 by esmeza-s         ###   ########.fr       */
+/*   Created: 2024/09/30 21:53:22 by esmeza-s          #+#    #+#             */
+/*   Updated: 2024/09/30 21:53:35 by esmeza-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_tolower(int c)
 {
-	
-	unsigned char	*p;
-
-	p = (unsigned char *)s;
-	while(n > 0)
+	if (ft_isascii(c) >= 1)
 	{
-		*p = (unsigned char)c;
-		p++;
-		n--;
+		if((c >= 'A') && (c <= 'Z'))
+			c = (c + 32);
 	}
-	return (s);
+	return (c);
 }
 /*
-int	main(void)
+int	main()
 {
-	char test1[15] = "Hello Word";
-    char x = 'f';
-
-    ft_memset(test1, x, 3);
-    printf("%s\n", test1);
-    return 0;
+	int c = 'A';
+	printf("Tengo esta letra: %c\n", c);
+	printf("Y ahora esta en Minuscula: %c\n", ft_tolower(c));
+	return (0);
 }*/

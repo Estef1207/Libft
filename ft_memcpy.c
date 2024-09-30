@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esmeza-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 17:51:49 by esmeza-s          #+#    #+#             */
-/*   Updated: 2024/09/23 17:51:53 by esmeza-s         ###   ########.fr       */
+/*   Created: 2024/09/30 20:26:22 by esmeza-s          #+#    #+#             */
+/*   Updated: 2024/09/30 20:26:28 by esmeza-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stddef.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+#include "libft.h"
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	int	i;
 	unsigned char	*d;
@@ -28,9 +28,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 			i++;
 			n--;	
 	}
-	return (dest);
+	return (dst);
 }
-
+/*
 int	main(void)
 {
 	char origen[] = "Hello Word, I love Y";
@@ -39,4 +39,4 @@ int	main(void)
     ft_memcpy(destino, origen, 9);
     printf("la cadena copiada es %s\n", destino);
     return 0;
-}
+}*/

@@ -10,30 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while(s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);	
-}
-
-int	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	src_len;
 	
 	i = 0;
 	src_len = ft_strlen(src);
-			
-
+	if (size == 0)
+		return (src_len);
 	while ((src[i]) && i < size - 1)
 		{
 			dst[i] = src[i];
@@ -43,32 +30,14 @@ int	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (src_len);
 }
 /*
-int main(void)
+int main()
 {
     char origen[] = "hola como estas?";
-    char destino[20] = "aqui to bien";  // Asegúrate de que el destino sea lo suficientemente grande
-    size_t NuevaStr = ft_strlcpy(destino, origen, 5);  // Se copiarán hasta 4 caracteres + '\0'
+    char destino[20] = "aqui to bien";
+    size_t NuevaStr = ft_strlcpy(destino, origen, 9);
 
-    printf("Cadena copiada: %s\n", destino);    // Salida: hola
-    printf("Longitud de la cadena fuente: %zu\n", NuevaStr); // Salida: longitud de "hola como estas?"
+    printf("Cadena copiada: %s\n", destino);
+    printf("Longitud de la cadena fuente: %zu\n", NuevaStr);
 
     return 0;
 }*/
-
-int	main(void)
-{
-	char origen[20] = "hola como estas?";
-	char destino[20] = "aqui to bien";
-	ft_strlcpy(destino, origen, 7);
-	printf("Cadena copiada: %s\n", destino);
-	return (0);
-}
-
-
-
-
-
-
-
-
-

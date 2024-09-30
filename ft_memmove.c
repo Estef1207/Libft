@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esmeza-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 17:51:49 by esmeza-s          #+#    #+#             */
-/*   Updated: 2024/09/23 17:51:53 by esmeza-s         ###   ########.fr       */
+/*   Created: 2024/09/30 20:25:59 by esmeza-s          #+#    #+#             */
+/*   Updated: 2024/09/30 20:26:03 by esmeza-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stddef.h>
+
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -40,7 +40,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
+/*
 int	main(void)
 {
 	char origen[] = "Hello Word, I love Y";
@@ -49,4 +49,4 @@ int	main(void)
     ft_memmove(destino, origen, 9);
     printf("la cadena copiada es %s\n", destino);
     return 0;
-}
+}*/

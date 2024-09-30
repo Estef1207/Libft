@@ -10,49 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while(s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);	
-}
-/*
-void	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	l;
+	size_t	j;
 
-	i = ft_strle(src);
-	l = ft_strle(dst);
-	if ((dst[l]) && i < size - 1)
-	{	
-		while (dst[l] < size - 1)
+	i = ft_strlen(dst);
+	j = 0;
+
+	if (src[j]) 
+	{
+		while((i + j + 1) < size)
 		{
-			l++;
-			dst[l] = src[i];
-			i++;
+			dst[i + j] = src[j];
+			j++;
 		}
-		
-	return (i);
+		dst[i + j] = '\0';	
+	}
+	return (i + ft_strlen(src));
 }
-*/
+/*
 int	main()
 {
-	char origen[] = " mundo";
-	char destino[] = "hola";
-	printf("la cadena origen contiene %d caracteres\n", ft_strlen(origen));
-	printf("la cadena destino %d caracteres\n", ft_strlen(destino));
-	//ft_strlcat(destino, origen, 20);
-	//printf("la cadena concatenada es: %s\n", destino);
-	//printf("la cadena contiene %d\n caracteres", ft_strlcat(destino, origen, 10));
+	char origen[20] = " mundo";
+	char destino[20] = "hola";
+	size_t resultado;
+
+	resultado = ft_strlcat(destino, origen, sizeof(destino));  // Llama a la función
+
+	printf("El resultado de mi función es: %zu\n", resultado);  // Usa %zu para size_t
+	printf("La cadena concatenada es: %s\n", destino);  // Imprime la cadena concatenada
+
 	return (0);
-}
+}*/
