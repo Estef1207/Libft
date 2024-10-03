@@ -10,26 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		i++;
 	}
-	return (i);	
+	return (i);
 }
 /*
 int main()
 {
 	char *test1 = "Hello World";
 	char *test2 = "queT@l? como estas?";
-	printf("La cantidad de letras es: %d\n", ft_strlen(test1));
-	printf("La cantidad de letras es: %d\n", ft_strlen(test2));
+	printf("La cantidad de letras es: %zu\n", ft_strlen(test1));
+	printf("La cantidad de letras es: %zu\n", ft_strlen(test2));
 	return 0;
-}*/ 
+}*/

@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esmeza-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 20:26:22 by esmeza-s          #+#    #+#             */
-/*   Updated: 2024/09/30 20:26:28 by esmeza-s         ###   ########.fr       */
+/*   Created: 2024/10/01 21:46:03 by esmeza-s          #+#    #+#             */
+/*   Updated: 2024/10/01 21:46:07 by esmeza-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int					i;
-	unsigned char		*d;
-	const unsigned char	*s;
+	size_t	i;
 
 	i = 0;
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dst;
-	while (n > 0)
-	{
-		d[i] = s[i];
+	while ((i <= n) && (s1[i]) && (s2[i]) && (s1[i] == s2[i]))
 		i++;
-		n--;
-	}
-	return (dst);
+	if (i == n)
+		return (0);
+	else
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 /*
-int	main(void)
+int	main()
 {
-	char origen[] = "Hello Word, I love Y";
-	char destino[20] = "";
- 
-    ft_memcpy(destino, origen, 9);
-    printf("la cadena copiada es %s\n", destino);
-    return 0;
-}*/
+	const char str1[] = "holas my friendd";
+	const char str2[] = "holiiii";
+	size_t result = ft_strncmp(str1, str2, 8);
+	printf("el resultado de mi comparacion es: %ld", result);
+}
+*/

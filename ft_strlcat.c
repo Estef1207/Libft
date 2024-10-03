@@ -19,15 +19,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	i = ft_strlen(dst);
 	j = 0;
-
-	if (src[j]) 
+	if (src[j])
 	{
-		while((i + j + 1) < size)
+		while ((i + j + 1) < size)
 		{
 			dst[i + j] = src[j];
 			j++;
 		}
-		dst[i + j] = '\0';	
+		dst[i + j] = '\0';
 	}
 	return (i + ft_strlen(src));
 }
@@ -38,10 +37,9 @@ int	main()
 	char destino[20] = "hola";
 	size_t resultado;
 
-	resultado = ft_strlcat(destino, origen, sizeof(destino));  // Llama a la función
+	resultado = ft_strlcat(destino, origen, sizeof(destino));
 
-	printf("El resultado de mi función es: %zu\n", resultado);  // Usa %zu para size_t
-	printf("La cadena concatenada es: %s\n", destino);  // Imprime la cadena concatenada
-
+	printf("Eesult de mi función es: %zu\n", resultado);
+	printf("La cadena concatenada es: %s\n", destino);
 	return (0);
 }*/

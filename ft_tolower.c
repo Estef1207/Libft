@@ -16,7 +16,7 @@ int	ft_tolower(int c)
 {
 	if (ft_isascii(c) >= 1)
 	{
-		if((c >= 'A') && (c <= 'Z'))
+		if ((c >= 'A') && (c <= 'Z'))
 			c = (c + 32);
 	}
 	return (c);

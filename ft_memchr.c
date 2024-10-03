@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esmeza-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 20:26:22 by esmeza-s          #+#    #+#             */
-/*   Updated: 2024/09/30 20:26:28 by esmeza-s         ###   ########.fr       */
+/*   Created: 2024/10/02 19:45:07 by esmeza-s          #+#    #+#             */
+/*   Updated: 2024/10/02 19:45:10 by esmeza-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int					i;
-	unsigned char		*d;
-	const unsigned char	*s;
+	const unsigned char	*str;
 
-	i = 0;
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dst;
-	while (n > 0)
+	str = (const unsigned char *)s;
+	while (n >= 0)
 	{
-		d[i] = s[i];
-		i++;
+		if (*str == (unsigned char)c)
+		{
+			return ((void *)str);
+		}
+		str++;
 		n--;
 	}
-	return (dst);
+	return (NULL);
 }
 /*
-int	main(void)
+int main()
 {
-	char origen[] = "Hello Word, I love Y";
-	char destino[20] = "";
- 
-    ft_memcpy(destino, origen, 9);
-    printf("la cadena copiada es %s\n", destino);
-    return 0;
+	char string[] = "estamos buscando algo";
+	char letter = 'o';
+	char *resultado = (char *)ft_memchr(string, letter, 5);
+	printf("coindicencia: %c, en posicion %ld", *resultado, resultado - string);
 }*/

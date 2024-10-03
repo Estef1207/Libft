@@ -29,4 +29,3 @@ int	main()
 	printf("y ahora mi letra es: %c\n",ft_toupper(c));	
 	return 0;
 }*/
-

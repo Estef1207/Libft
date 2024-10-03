@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esmeza-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 20:26:22 by esmeza-s          #+#    #+#             */
-/*   Updated: 2024/09/30 20:26:28 by esmeza-s         ###   ########.fr       */
+/*   Created: 2024/10/03 20:58:12 by esmeza-s          #+#    #+#             */
+/*   Updated: 2024/10/03 20:58:14 by esmeza-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_atoi(const char *str)
 {
-	int					i;
-	unsigned char		*d;
-	const unsigned char	*s;
+	int	resultado;
+	int signo;
+	int i;
 
 	i = 0;
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dst;
-	while (n > 0)
+	resultado = 0;
+	signo = '+';
+	while (str[i]) 
 	{
-		d[i] = s[i];
-		i++;
-		n--;
+		if (str[i] == 43 || str[i] == 45)
+		{
+			signo = str[i];
+			i++;
+		}
+		else if(ft_isdigit(str[i]) > 0)
+		{
+			resultado = ((resultado * 10) + (str[i] - '0'));
+			i++;
+		}
+		else
+			i++;
 	}
-	return (dst);
+	return (resultado * signo);
 }
-/*
-int	main(void)
+int main()
 {
-	char origen[] = "Hello Word, I love Y";
-	char destino[20] = "";
- 
-    ft_memcpy(destino, origen, 9);
-    printf("la cadena copiada es %s\n", destino);
-    return 0;
-}*/
+	char str[] = "	2566";
+	int result = ft_atoi(str);
+	printf("encontre %c", result);
+}

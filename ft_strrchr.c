@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esmeza-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 22:13:14 by esmeza-s          #+#    #+#             */
-/*   Updated: 2024/09/30 22:13:18 by esmeza-s         ###   ########.fr       */
+/*   Created: 2024/10/01 21:11:01 by esmeza-s          #+#    #+#             */
+/*   Updated: 2024/10/01 21:11:11 by esmeza-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	const char	*ptr;	
-	size_t		i;
+	const char	*ptr;
+	size_t		s_len;
 
-	i = 0;
 	ptr = (const char *)s;
-	while ((ptr[i]) && (ptr[i] != (char)c))
-		i++;
-	if (ptr[i] == (char)c)
-		return ((char *)&ptr[i]);
+	s_len = ft_strlen(s);
+	s_len--;
+	while ((ptr[s_len]) && (ptr[s_len] != (char)c))
+		s_len--;
+	if (ptr[s_len] == (char)c)
+		return ((char *)&ptr[s_len]);
 	else
 		return (NULL);
 }
 /*
 int main()
 {
-	const char *s = "la prueba";
-	int c = 'e';
-	char *find_char = strchr(s, c);
-	if (find_char)
-		printf("Una coincidencia: %c en el %ld byte", *find_char, find_char - s);
+	const char str[18] = "Vamonos a dormir";
+	int c = 'f';
+	char *resultado = ft_strrchr(str, c);
+	if (resultado)
+		printf("ultim char: %c es en el byte: %ld", *resultado, resultado - str);
 	else
-		printf("No hubo coincidencia alguna");
+		printf("No hubo coincidencia alguna"); 
 }*/
