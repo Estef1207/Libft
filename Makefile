@@ -4,16 +4,14 @@ SRCS = $(wildcard *.c)
 
 OBJECTS = $(SRCS:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra
-
-HEADERS = $(wildcard *.h)
+CFLAGS = cc -Wall -Werror -Wextra
 
 
 all: $(NAME)
-	ar -rcs $(NAME) $(OBJECTS)
 
-$(NAME):
-	cc $(CFLAGS) -c $(SRCS)
+
+$(NAME): $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.c
 	$(CFLAGS) -c $< -o $@
@@ -21,7 +19,7 @@ $(NAME):
 clean:
 	rm -f $(OBJECTS)
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 re:	fclean all

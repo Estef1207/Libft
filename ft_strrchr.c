@@ -19,22 +19,26 @@ char	*ft_strrchr(const char *s, int c)
 
 	ptr = (const char *)s;
 	s_len = ft_strlen(s);
-	s_len--;
-	while ((ptr[s_len]) && (ptr[s_len] != (char)c))
+	if (c == '\0')
+		return ((char *)ptr + s_len);
+	while (s_len > 0)
+	{
+		if (ptr[s_len] == (char)c)
+			return ((char *)ptr + s_len);
 		s_len--;
-	if (ptr[s_len] == (char)c)
-		return ((char *)&ptr[s_len]);
-	else
-		return (NULL);
+	}
+	if (ptr[0] == (char)c)
+		return ((char *)ptr);
+	return (NULL);
 }
 /*
 int main()
 {
 	const char str[18] = "Vamonos a dormir";
-	int c = 'f';
-	char *resultado = ft_strrchr(str, c);
+	int c = '\0';
+	char *res = ft_strrchr(str, c);
 	if (resultado)
-		printf("ultim char: %c es en el byte: %ld", *resultado, resultado - str);
+		printf("hay un char: %c en el byte: %ld\n", *res, resultado - str);
 	else
-		printf("No hubo coincidencia alguna"); 
+		printf("No hubo coincidencia alguna\n"); 
 }*/
