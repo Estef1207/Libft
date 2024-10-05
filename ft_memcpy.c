@@ -14,13 +14,17 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int					i;
+	size_t				i;
 	unsigned char		*d;
 	const unsigned char	*s;
 
 	i = 0;
 	s = (const unsigned char *)src;
 	d = (unsigned char *)dst;
+	if (n == 0)
+		return (dst);
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	while (n > 0)
 	{
 		d[i] = s[i];
@@ -32,8 +36,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 /*
 int	main(void)
 {
-	char origen[] = "Hello Word, I love Y";
-	char destino[20] = "";
+	char origen[] = "como estas?";
+	char destino[20] = "hola";
  
     ft_memcpy(destino, origen, 9);
     printf("la cadena copiada es %s\n", destino);

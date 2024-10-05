@@ -14,21 +14,24 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
+	size_t	slen;
+	size_t	dlen;
 	size_t	i;
-	size_t	j;
 
-	i = ft_strlen(dst);
-	j = 0;
-	if (src[j])
+	slen = ft_strlen(src);
+	dlen = ft_strlen(dst);
+	i = 0;
+	if (size < dlen)
 	{
-		while ((i + j + 1) < size)
-		{
-			dst[i + j] = src[j];
-			j++;
-		}
-		dst[i + j] = '\0';
+		return (size + slen);
 	}
-	return (i + ft_strlen(src));
+	while ((src[i]) && (dlen + i) < (size -1))
+	{
+		dst[dlen + i] = src[i];
+		i++;
+	}
+	dst[dlen + i] = '\0';
+	return (dlen + slen);
 }
 /*
 int	main()
@@ -39,7 +42,7 @@ int	main()
 
 	resultado = ft_strlcat(destino, origen, sizeof(destino));
 
-	printf("Eesult de mi función es: %zu\n", resultado);
+	printf("Result de mi función es: %zu\n", resultado);
 	printf("La cadena concatenada es: %s\n", destino);
 	return (0);
 }*/

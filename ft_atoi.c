@@ -15,32 +15,34 @@
 int	ft_atoi(const char *str)
 {
 	int	resultado;
-	int signo;
-	int i;
+	int	signo;
+	int	i;
 
 	i = 0;
 	resultado = 0;
-	signo = '+';
-	while (str[i]) 
+	signo = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-')
 	{
-		if (str[i] == 43 || str[i] == 45)
-		{
-			signo = str[i];
-			i++;
-		}
-		else if(ft_isdigit(str[i]) > 0)
-		{
-			resultado = ((resultado * 10) + (str[i] - '0'));
-			i++;
-		}
-		else
-			i++;
+		signo = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+	{
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		resultado = (resultado * 10 + (str[i] - '0'));
+		i++;
 	}
 	return (resultado * signo);
 }
+/*
 int main()
 {
-	char str[] = "	2566";
+	char str[] = "52";
 	int result = ft_atoi(str);
-	printf("encontre %c", result);
-}
+	printf("encontre %d", result);
+}*/
