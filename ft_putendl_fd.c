@@ -1,45 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esmeza-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 20:58:12 by esmeza-s          #+#    #+#             */
-/*   Updated: 2024/10/03 20:58:14 by esmeza-s         ###   ########.fr       */
+/*   Created: 2024/10/15 18:51:19 by esmeza-s          #+#    #+#             */
+/*   Updated: 2024/10/15 18:51:22 by esmeza-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	resultado;
-	int	signo;
 	int	i;
 
 	i = 0;
-	resultado = 0;
-	signo = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (s[i] != '\0')
 	{
-		if (str[i] == '-')
-			signo = -1;
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		resultado = (resultado * 10 + (str[i] - '0'));
-		i++;
-	}
-	return (resultado * signo);
+	ft_putchar_fd('\n', fd);
 }
-/*
-int main()
-{
-	char str[] = " 69\n";
-	int result = ft_atoi(str);
-	printf("encontre %d", result);
-}*/
