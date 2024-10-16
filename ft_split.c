@@ -11,31 +11,66 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
-char	**ft_split(char const *s, char c)
+
+static int	count_w(char **str, char c)
 {
+	int	i;
+	int	cw;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i] == '\0')
+			cw++;
+		i++;
+	}
+	return (cw);
+}
+
+
+
+char	*get_next_word(char const **s, char c)
+{
+	int		i;
+	char	*str;
+
+	i = 0;
+	str = (char *)*s;
+	while (str[i] && str[i] != c)
+	{
+		i++;
+	}
+	*s += i;
+	str = ft_substr(str, 0, i);
+	return (str);
+}
 
 
 
 
+static int	count_l(char **str, char c)
+{
+	int	i;
+	int new_w
+
+	
+	i = 0;
+	while (s[i])
+		if (s[i] != c)
+			i++
+		else if 
+
+}
 
 
-ft_substr
-ft_strlcpy
-count_substr
-long_substr
+
+
+int	main()
+{
+	const char **s = "una frase linda";
+	char delim = ' ';
+
 
 
 
 }
-int	main()
-{
-	char motherstr[] = "Mi frase es muy bonita";
-	char c = 'e';
-	int i = 0;
-	ft_split(motherstr, c);
-	while (ft_split(motherstr, c[i]))
-
-	printf("")
-
-}*/
