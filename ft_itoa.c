@@ -39,7 +39,8 @@ char	*ft_itoa(int n)
 	nbr = n;
 	i_digits = "0123456789";
 	len = ft_numlen(nbr);
-	if (!(str_num = malloc(sizeof(char) * (len + 1))))
+	str_num = malloc(sizeof(char) * (len + 1));
+	if (!str_num)
 		return (NULL);
 	str_num[len] = '\0';
 	if (nbr == 0)

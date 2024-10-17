@@ -12,27 +12,27 @@
 
 #include "libft.h"
 
-static int	count_w(char **str, char c)
+static int	count_words(char *s, char c)
 {
 	int	i;
 	int	cw;
 
 	i = 0;
+	cw = 0;
 	while (s[i])
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i] == '\0')
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			cw++;
 		i++;
 	}
 	return (cw);
 }
 
-
-
-char	*get_next_word(char const **s, char c)
+static char	*get_next_word(char const **s, char c)
 {
 	int		i;
 	char	*str;
+	char	*substr;
 
 	i = 0;
 	str = (char *)*s;
@@ -40,37 +40,78 @@ char	*get_next_word(char const **s, char c)
 	{
 		i++;
 	}
+	substr = ft_substr(str, 0, i);
+	if (!substr)
+		return (NULL);
 	*s += i;
-	str = ft_substr(str, 0, i);
-	return (str);
+	return (substr);
 }
 
-
-
-
-static int	count_l(char **str, char c)
+void	free_array(char **str)
 {
 	int	i;
-	int new_w
 
-	
 	i = 0;
-	while (s[i])
-		if (s[i] != c)
-			i++
-		else if 
-
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
 
+static char	**i_words(char **array_w, char const *s, char c)
+{
+	int	i;
 
+	i = 0;
+	while (*s != '\0')
+	{
+		if (*s != c)
+		{
+			array_w[i] = get_next_word(&s, c);
+			if (!array_w[i++])
+			{
+				free_array(array_w);
+				return (NULL);
+			}
+		}
+		else
+			s++;
+	}
+	array_w[i] = NULL;
+	return (array_w);
+}
 
+char	**ft_split(char const *s, char c)
+{
+	int		words;
+	char	**array_w;
 
+	if (!s)
+		return (NULL);
+	words = count_words((char *)s, c);
+	array_w = ((char **)malloc(sizeof(char *) * (words + 1)));
+	if (!array_w)
+		return (NULL);
+	return (i_words(array_w, s, c));
+}
+/*
 int	main()
 {
-	const char **s = "una frase linda";
+	const char *s = "una frase linda";
 	char delim = ' ';
+	char **result = ft_split(s, delim);
 
-
-
-
-}
+	int	i = 0;
+	if (!result)
+		return (1);
+	printf("mi array es:\n");
+	while (result[i] != NULL)
+	{
+		printf("%s\n", result[i]);
+		i++;
+	}
+	free_array(result);
+	free (result);
+}*/
