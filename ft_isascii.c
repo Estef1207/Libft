@@ -18,11 +18,3 @@ int	ft_isascii(int c)
 		return (1);
 	return (0);
 }
-/*
-int main()
-{
-	printf("Test1: %d\n", ft_isascii('?')); 
-	printf("Test2: %d\n", ft_isascii('s')); 
-	printf("Test3: %d\n", ft_isascii('Í')); 
-	printf("Test4: %d\n", ft_isascii('.'));
-}*/

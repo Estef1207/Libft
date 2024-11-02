@@ -96,22 +96,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (i_words(array_w, s, c));
 }
-/*
-int	main()
-{
-	const char *s = "una frase linda";
-	char delim = ' ';
-	char **result = ft_split(s, delim);
-
-	int	i = 0;
-	if (!result)
-		return (1);
-	printf("mi array es:\n");
-	while (result[i] != NULL)
-	{
-		printf("%s\n", result[i]);
-		i++;
-	}
-	free_array(result);
-	free (result);
-}*/

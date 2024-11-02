@@ -36,10 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (resultado * signo);
 }
-/*
-int main()
-{
-	char str[] = " 69\n";
-	int result = ft_atoi(str);
-	printf("encontre %d", result);
-}*/

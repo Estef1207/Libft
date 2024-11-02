@@ -23,12 +23,3 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
-/*
-int main()
-{
-	char *test1 = "Hello World";
-	char *test2 = "queT@l? como estas?";
-	printf("La cantidad de letras es: %zu\n", ft_strlen(test1));
-	printf("La cantidad de letras es: %zu\n", ft_strlen(test2));
-	return 0;
-}*/

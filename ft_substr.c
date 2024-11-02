@@ -36,10 +36,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(new_str, (s + start), (len + 1));
 	return (new_str);
 }
-/*
-int main()
-{
-	char s[] = "una copia bella";
-	printf("%s\n", ft_substr(s, 2, 8));
-	return 0;
-}*/

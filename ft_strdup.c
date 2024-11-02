@@ -29,16 +29,3 @@ char	*ft_strdup(const char *s)
 	newstr[i] = '\0';
 	return (newstr);
 }
-/*
-int main()
-{
-	char original[] = "paRAngaRIcutIRIMIcuaro";
-	char *dupl = ft_strdup(original);
-	if (dupl)
-	{
-		printf("La cadena duplicada es: %s\n", dupl);
-		free(dupl);
-	}
-	else
-		printf("Error al duplicar la cadena\n");
-}*/

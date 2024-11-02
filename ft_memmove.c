@@ -39,13 +39,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
-int	main(void)
-{
-	char origen[] = "Hello Word, I love Y";
-	char destino[25] = " ";
- 
-    ft_memmove(destino, origen, 9);
-    printf("la cadena copiada es %s\n", destino);
-    return 0;
-}*/

@@ -29,14 +29,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (src_len);
 }
-/*
-int main()
-{
-    char origen[] = "hola como estas ?";
-    char destino[20] = "aqui to bien";
- 
-	ft_strlcpy(destino, origen, 8);
-  	printf("Cadena copiada: %s\n", destino);
-	printf("Long cadena src: %zu\n", ft_strlcpy(destino, origen, 9));
-    return 0;
-}*/

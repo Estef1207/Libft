@@ -36,11 +36,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, int n)
 	}
 	return (NULL);
 }
-/*
-int main()
-{
-  char s1[] = "Esta es una frase de prueba";
-  char s2[] = "una";
-  int size = 25;
-  printf("El resultado de mi string es: %s", ft_strnstr(s1, s2, size));
-}*/

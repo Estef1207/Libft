@@ -32,13 +32,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(new_str, &s1[i], sizes - i + 1);
 	return (new_str);
 }
-/*
-int main()
-{
-	char s1[] = "asfffholidasd";
-	char s2[] = "fsadf";
-	char *new_str = ft_strtrim(s1, s2);
-	printf("%s\n", new_str);
-	free (new_str);
-	return 0;
-}*/

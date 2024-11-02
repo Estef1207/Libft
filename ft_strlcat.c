@@ -33,16 +33,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dlen + i] = '\0';
 	return (dlen + slen);
 }
-/*
-int	main()
-{
-	char origen[20] = " mundo";
-	char destino[20] = "hola";
-	size_t resultado;
-
-	resultado = ft_strlcat(destino, origen, sizeof(destino));
-
-	printf("Result de mi función es: %zu\n", resultado);
-	printf("La cadena concatenada es: %s\n", destino);
-	return (0);
-}*/

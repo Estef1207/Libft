@@ -35,26 +35,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	result[i] = '\0';
 	return (result);
 }
-/*
-char	example_funct(unsigned int i, char c)
-{
-	i += i;
-	if (c >= 'a' && c <= 'z')
-		return (c - 'a' + 'A');
-	return (c);
-}
-
-int	main()
-{
-	char	str[] = "Hola, Que tal 42";
-	char	*result;
-
-	result = ft_strmapi(str, example_funct);
-	if (result)
-	{
-		printf("Original: %s\n", str);
-		printf("Modificadad por ft_str_mapi: %s\n", result);
-		free(result);
-	}
-	return (0);
-}*/

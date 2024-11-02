@@ -21,11 +21,3 @@ int	ft_toupper(int c)
 	}
 	return (c);
 }
-/*
-int	main()
-{
-	int c = 'b';
-	printf("mi letra inicial es: %c\n", c);	
-	printf("y ahora mi letra es: %c\n",ft_toupper(c));	
-	return 0;
-}*/

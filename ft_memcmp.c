@@ -33,16 +33,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-/*
-int main()
-{
-	char s1[] = "hambre";
-	char s2[] = "hombre";
-	int result = ft_memcmp(s1, s2, 5);
-	if (result > 0)
-		printf("The string s2 has %d bytes more than s1", result);
-	if (result == 0)
-		printf("My string s1 is the same as s2");
-	else
-		printf("The string s1 has %d bytes less than s2", result);
-}*/

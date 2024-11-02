@@ -14,26 +14,15 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	const char	*ptr;	
+	char	*ptr;	
 	size_t		i;
 
 	i = 0;
-	ptr = (const char *)s;
+	ptr = (char *)s;
 	while ((ptr[i]) && (ptr[i] != (char)c))
 		i++;
 	if (ptr[i] == (char)c)
-		return ((char *)&ptr[i]);
+		return (&ptr[i]);
 	else
 		return (NULL);
 }
-/*
-int main()
-{
-	const char *s = "la prueba";
-	int c = 'e';
-	char *find_char = strchr(s, c);
-	if (find_char)
-		printf("Una coincidencia: %c en el %ld byte", *find_char, find_char - s);
-	else
-		printf("No hubo coincidencia alguna");
-}*/

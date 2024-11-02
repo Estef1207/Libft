@@ -21,11 +21,3 @@ int	ft_tolower(int c)
 	}
 	return (c);
 }
-/*
-int	main()
-{
-	int c = 'A';
-	printf("Tengo esta letra: %c\n", c);
-	printf("Y ahora esta en Minuscula: %c\n", ft_tolower(c));
-	return (0);
-}*/

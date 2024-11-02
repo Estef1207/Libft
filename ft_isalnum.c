@@ -20,11 +20,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-/*
-int main()
-{
-	printf("Test1: %d\n", ft_isalnum('p')); 
-	printf("Test2: %d\n", ft_isalnum('2')); 
-	printf("Test3: %d\n", ft_isalnum('1')); 
-	printf("Test4: %d\n", ft_isalnum('.'));
-}*/

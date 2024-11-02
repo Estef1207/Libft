@@ -28,11 +28,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-/*
-int main()
-{
-	char string[] = "estamos buscando algo";
-	char letter = 'o';
-	char *resultado = (char *)ft_memchr(string, letter, 5);
-	printf("coindicencia: %c, en posicion %ld", *resultado, resultado - string);
-}*/

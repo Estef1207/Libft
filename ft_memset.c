@@ -25,13 +25,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-/*
-int	main(void)
-{
-	char test1[15] = "Hello Word";
-    char x = 'f';
-
-    ft_memset(test1, x, 3);
-    printf("%s\n", test1);
-    return 0;
-}*/

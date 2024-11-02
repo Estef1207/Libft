@@ -33,13 +33,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-/*
-int	main(void)
-{
-	char origen[] = "como estas?";
-	char destino[20] = "hola";
- 
-    ft_memcpy(destino, origen, 9);
-    printf("la cadena copiada es %s\n", destino);
-    return 0;
-}*/

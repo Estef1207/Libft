@@ -24,12 +24,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	else
 		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-/*
-int	main()
-{
-	const char str1[] = "holas my friendd";
-	const char str2[] = "holiiii";
-	size_t result = ft_strncmp(str1, str2, 8);
-	printf("el resultado de mi comparacion es: %ld", result);
-}
-*/

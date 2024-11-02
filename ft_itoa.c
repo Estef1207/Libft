@@ -57,17 +57,3 @@ char	*ft_itoa(int n)
 	}
 	return (str_num);
 }
-/*
-int main()
-{
-	 int n = -528;
-	char *numeros = ft_itoa(n);
-	if (numeros)
-	{
-		printf("El número en char es: %s\n", numeros);
-		free(numeros);
-	}
-	else
-		printf("Error al convertir el número.\n");
-	return 0;
-}*/

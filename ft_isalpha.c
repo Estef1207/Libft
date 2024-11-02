@@ -18,11 +18,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-/*
-int main()
-{
-	printf("Test1: %d\n", ft_isalpha('a')); 
-	printf("Test2: %d\n", ft_isalpha('.')); 
-	printf("Test3: %d\n", ft_isalpha('G')); 
-	printf("Test4: %d\n", ft_isalpha('1'));
-}*/

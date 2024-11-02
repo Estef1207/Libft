@@ -31,14 +31,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)ptr);
 	return (NULL);
 }
-/*
-int main()
-{
-	const char str[18] = "Vamonos a dormir";
-	int c = '\0';
-	char *res = ft_strrchr(str, c);
-	if (resultado)
-		printf("hay un char: %c en el byte: %ld\n", *res, resultado - str);
-	else
-		printf("No hubo coincidencia alguna\n"); 
-}*/
