@@ -121,6 +121,15 @@ int main()
     return 0;
 }
 
+--strlcat
+int main()
+{
+	char s1[] = "hola";
+	char s2[] =  "hola como estas amiguito";
+	size_t size = 1;
+	size_t result = ft_strlcat(s1, s2, size);
+	printf("%zu\n", result);
+}
 
 --toupper:
 int	main()
@@ -161,7 +170,7 @@ int main()
 	const char str[18] = "Vamonos a dormir";
 	int c = '\0';
 	char *res = ft_strrchr(str, c);
-	if (resultado)
+	if (res)
 		printf("hay un char: %c en el byte: %ld\n", *res, resultado - str);
 	else
 		printf("No hubo coincidencia alguna\n"); 
@@ -270,12 +279,17 @@ int	main()
 	if (!result)
 		return (1);
 	printf("mi array es:\n");
-	while (result[i] != NULL)
+	while (result[i])
 	{
 		printf("%s\n", result[i]);
 		i++;
 	}
-	free_array(result);
+ 	i = 0;
+	while (result[i])
+	{
+		free(result[i])
+		i++;	
+	}
 	free (result);
 }
 
