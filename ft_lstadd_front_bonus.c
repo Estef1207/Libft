@@ -14,7 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list *new_nodo = crear_nodo(new);
+	t_list	*new_nodo;
+
+	new_nodo = crear_nodo(new);
 	new_nodo->next = *lst;
 	*lst = new_nodo;
 }

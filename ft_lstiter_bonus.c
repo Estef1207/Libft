@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esmeza-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 18:06:07 by esmeza-s          #+#    #+#             */
-/*   Updated: 2025/02/24 18:15:36 by esmeza-s         ###   ########.fr       */
+/*   Created: 2025/02/25 19:39:52 by esmeza-s          #+#    #+#             */
+/*   Updated: 2025/02/25 19:43:41 by esmeza-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*new_nodo;
+	t_list	*temp;
 
-	new_nodo = (ft_lstnew)malloc(sizeof(t_list ft_lstnew));
-	if (!new_nodo)
-		return (NULL);
-	new_nodo->content = content;
-	new_nodo->next = NULL;
-	return (new_nodo);
+	if (!lst || !f)
+		return ;
+	temp = lst;
+	while (temp != NULL)
+	{
+		f(temp->content);
+		temp = temp->next;
+	}
+	return ;
 }
