@@ -414,3 +414,581 @@ int main()
     close(fd);
     return 0;
 }*/
+
+____________________________________________________________________________________________________
+
+-- ft_lstnew_bonus
+/*
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+
+void print_node_info(t_list *node)
+{
+    if (!node)
+        printf("Nodo: NULL\n");
+    else
+    {
+        printf("Nodo creado: %p\n", node);
+        printf("Contenido: %p ", node->content);
+        if (node->content)
+            printf("(\"%s\")", (char *)node->content);
+        printf("\n");
+        printf("Next: %p\n", node->next);
+    }
+    printf("-------------------\n");
+}
+
+int main(void)
+{
+    // Prueba 1: Crear un nodo con contenido tipo string
+    char *str = "Hola 42";
+    t_list *node1 = ft_lstnew(str);
+    printf("Prueba 1: Nodo con string\n");
+    print_node_info(node1);
+    
+    // Comprobar si el contenido es correcto
+    if (node1 && node1->content == str && node1->next == NULL)
+        printf("✓ El nodo con string se creó correctamente\n\n");
+    else
+        printf("✗ Error en la creación del nodo con string\n\n");
+    
+    // Prueba 2: Crear un nodo con contenido numérico (usando puntero a int)
+    int *num = malloc(sizeof(int));
+    *num = 42;
+    t_list *node2 = ft_lstnew(num);
+    printf("Prueba 2: Nodo con número (puntero)\n");
+    print_node_info(node2);
+    printf("Valor numérico: %d\n", *(int *)node2->content);
+    
+    // Comprobar si el contenido es correcto
+    if (node2 && node2->content == num && node2->next == NULL && *(int *)node2->content == 42)
+        printf("✓ El nodo con número se creó correctamente\n\n");
+    else
+        printf("✗ Error en la creación del nodo con número\n\n");
+    
+    // Prueba 3: Crear un nodo con contenido NULL
+    t_list *node3 = ft_lstnew(NULL);
+    printf("Prueba 3: Nodo con contenido NULL\n");
+    print_node_info(node3);
+    
+    // Comprobar si el nodo se creó correctamente con contenido NULL
+    if (node3 && node3->content == NULL && node3->next == NULL)
+        printf("✓ El nodo con contenido NULL se creó correctamente\n\n");
+    else
+        printf("✗ Error en la creación del nodo con contenido NULL\n\n");
+    
+    // Limpieza de memoria
+    free(node1);
+    free(num);  // Liberar el int que creamos
+    free(node2);
+    free(node3);
+    
+    return 0;
+} */
+
+
+
+-- ft_lstadd_front_bonus
+/*
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+
+// Función para imprimir el contenido de una lista
+void print_list(t_list *lst)
+{
+    if (!lst)
+    {
+        printf("Lista vacía: NULL\n");
+        return;
+    }
+    
+    printf("Lista: ");
+    while (lst)
+    {
+        printf("%s -> ", (char *)lst->content);
+        lst = lst->next;
+    }
+    printf("NULL\n");
+}
+
+int main(void)
+{
+    // Inicializar una lista vacía
+    t_list *lista = NULL;
+    
+    // Prueba 1: Añadir a lista vacía
+    printf("Prueba 1: Añadir a lista vacía\n");
+    printf("Antes: ");
+    print_list(lista);
+    
+    t_list *nodo1 = ft_lstnew(strdup("primero"));
+    ft_lstadd_front(&lista, nodo1);
+    
+    printf("Después: ");
+    print_list(lista);
+    
+    // Verificación
+    if (lista == nodo1 && lista->next == NULL)
+        printf("✓ Nodo añadido correctamente a lista vacía\n\n");
+    else
+        printf("✗ Error al añadir nodo a lista vacía\n\n");
+    
+    // Prueba 2: Añadir a lista con elementos
+    printf("Prueba 2: Añadir a lista con elementos\n");
+    printf("Antes: ");
+    print_list(lista);
+    
+    t_list *nodo2 = ft_lstnew(strdup("nuevo primero"));
+    ft_lstadd_front(&lista, nodo2);
+    
+    printf("Después: ");
+    print_list(lista);
+    
+    // Verificación
+    if (lista == nodo2 && lista->next == nodo1)
+        printf("✓ Nodo añadido correctamente al inicio de la lista\n\n");
+    else
+        printf("✗ Error al añadir nodo al inicio de la lista\n\n");
+    
+    // Prueba 3: Verificar que se maneja correctamente el puntero NULL
+    printf("Prueba 3: Pasar NULL como nuevo nodo\n");
+    t_list *lista_antes = lista;
+    ft_lstadd_front(&lista, NULL);
+    
+    // Verificación
+    if (lista == lista_antes)
+        printf("✓ La función maneja correctamente NULL como parámetro\n\n");
+    else
+        printf("✗ Error al manejar NULL como parámetro\n\n");
+    
+    // Limpieza de memoria
+    while (lista)
+    {
+        t_list *temp = lista;
+        lista = lista->next;
+        free(temp->content);
+        free(temp);
+    }
+    
+    return 0;
+}
+*/
+
+	
+
+-- ft_ltsadd_back_bonus
+/*int main(void)
+{
+    t_list *head = NULL;
+    t_list *new_node1 = ft_lstnew("Primer nodo");
+    t_list *new_node2 = ft_lstnew("Segundo nodo");
+    t_list *new_node3 = ft_lstnew("Tercer nodo");
+
+    ft_lstadd_back(&head, new_node1);
+    ft_lstadd_back(&head, new_node2);
+    ft_lstadd_back(&head, new_node3);
+
+    t_list *temp = head;
+    while (temp != NULL)
+    {
+        printf("%s\n", (char *)temp->content);
+        temp = temp->next;
+    }
+
+    t_list *tempo;
+    while (head != NULL)
+    {
+        tempo = head;
+        head = head->next;
+        free(tempo);
+    }
+
+    return 0;
+}*/
+
+
+
+	
+--ft_lstlast_bonus
+/*
+int main(void)
+{
+    t_list *head = ft_lstnew("Primer nodo");
+    ft_lstadd_front(&head, ft_lstnew("Segundo nodo"));
+    ft_lstadd_front(&head, ft_lstnew("Tercer nodo"));
+
+    t_list *last_node = ft_lstlast(head);
+
+    if (last_node) {
+        printf("El último nodo contiene: %s\n", (char *)last_node->content);
+    } else {
+        printf("La lista está vacía.\n");
+    }
+
+    t_list *temp;
+    while (head != NULL)
+    {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+
+    return 0;
+}*/
+
+
+
+	
+--- ft_lstsize_bonus
+/*
+int main(void)
+{
+    t_list *head = ft_lstnew("Primer nodo");
+    t_list *second = ft_lstnew("Segundo nodo");
+    t_list *third = ft_lstnew("Tercer nodo");
+
+    ft_lstadd_front(&head, second);
+    ft_lstadd_front(&head, third);
+
+    int size = ft_lstsize(head);
+    printf("El tamaño de la lista es: %d\n", size);
+
+    t_list *temp;
+    while (head != NULL)
+    {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+
+    return 0;
+}*/
+
+	
+
+
+--ft_lstdelne_bonus
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Definición de t_list (asumiendo que es así)
+typedef struct s_list
+{
+    void            *content;
+    struct s_list   *next;
+}   t_list;
+
+// Función auxiliar para crear un nuevo nodo
+t_list *ft_lstnew(void *content)
+{
+    t_list *new;
+
+    new = (t_list *)malloc(sizeof(t_list));
+    if (!new)
+        return (NULL);
+    new->content = content;
+    new->next = NULL;
+    return (new);
+}
+
+// Función para liberar el contenido (en este caso, strings)
+void del_content(void *content)
+{
+    printf("Liberando contenido: %s\n", (char *)content);
+    free(content);
+}
+
+// Función para imprimir la lista
+void print_list(t_list *lst)
+{
+    while (lst)
+    {
+        printf("%s -> ", (char *)lst->content);
+        lst = lst->next;
+    }
+    printf("NULL\n");
+}
+
+int main(void)
+{
+    // Crear algunos nodos con contenido dinámico
+    char *str1 = strdup("Nodo 1");
+    char *str2 = strdup("Nodo 2");
+    char *str3 = strdup("Nodo 3");
+
+    t_list *nodo1 = ft_lstnew(str1);
+    t_list *nodo2 = ft_lstnew(str2);
+    t_list *nodo3 = ft_lstnew(str3);
+
+    // Conectar los nodos
+    nodo1->next = nodo2;
+    nodo2->next = nodo3;
+
+    printf("Lista original:\n");
+    print_list(nodo1);
+
+    // Eliminar el nodo 2 (del medio)
+    printf("\nEliminando nodo 2:\n");
+    t_list *temp = nodo1->next;  // Guardar referencia a nodo2
+    nodo1->next = nodo3;  // Conectar nodo1 directamente con nodo3
+    ft_lstdelone(temp, del_content);
+
+    printf("\nLista después de eliminar nodo 2:\n");
+    print_list(nodo1);
+
+    // Limpiar el resto de la lista manualmente
+    printf("\nLimpieza final:\n");
+    ft_lstdelone(nodo3, del_content);
+    ft_lstdelone(nodo1, del_content);
+
+    return 0;
+}*/
+
+
+
+
+-- ft_lstclear_bonus	
+/*
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+
+// Función para eliminar el contenido
+void delete_content(void *content)
+{
+    free(content);
+}
+
+// Función para imprimir el contenido de una lista
+void print_list(t_list *lst)
+{
+    if (!lst)
+    {
+        printf("Lista vacía: NULL\n");
+        return;
+    }
+    
+    printf("Lista: ");
+    while (lst)
+    {
+        printf("%s -> ", (char *)lst->content);
+        lst = lst->next;
+    }
+    printf("NULL\n");
+}
+
+int main(void)
+{
+    // Crear una lista con varios elementos
+    t_list *lista = NULL;
+    
+    // Añadir algunos nodos
+    ft_lstadd_back(&lista, ft_lstnew(strdup("uno")));
+    ft_lstadd_back(&lista, ft_lstnew(strdup("dos")));
+    ft_lstadd_back(&lista, ft_lstnew(strdup("tres")));
+    
+    printf("Lista antes de limpiar:\n");
+    print_list(lista);
+    
+    // Limpiar la lista
+    ft_lstclear(&lista, delete_content);
+    
+    printf("Lista después de limpiar:\n");
+    print_list(lista);
+    
+    // Verificar que la lista ahora es NULL
+    if (lista == NULL)
+        printf("✓ Lista correctamente limpiada y establecida a NULL\n");
+    else
+        printf("✗ Error: La lista debería ser NULL después de ft_lstclear\n");
+    
+    return 0;
+}*/
+
+
+
+
+-- ft_lstiter_bonus
+/*
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+// Función para convertir una cadena a mayúsculas (para usar con ft_lstiter)
+void to_uppercase(void *content)
+{
+    char *str = (char *)content;
+    
+    while (*str)
+    {
+        *str = toupper(*str);
+        str++;
+    }
+}
+
+// Función para imprimir el contenido de una lista
+void print_list(t_list *lst)
+{
+    if (!lst)
+    {
+        printf("Lista vacía: NULL\n");
+        return;
+    }
+    
+    printf("Lista: ");
+    while (lst)
+    {
+        printf("%s -> ", (char *)lst->content);
+        lst = lst->next;
+    }
+    printf("NULL\n");
+}
+
+int main(void)
+{
+    // Crear una lista con varios elementos
+    t_list *lista = NULL;
+    
+    // Añadir algunos nodos con cadenas en minúsculas
+    ft_lstadd_back(&lista, ft_lstnew(strdup("uno")));
+    ft_lstadd_back(&lista, ft_lstnew(strdup("dos")));
+    ft_lstadd_back(&lista, ft_lstnew(strdup("tres")));
+    
+    printf("Lista antes de aplicar ft_lstiter:\n");
+    print_list(lista);
+    
+    // Aplicar la función to_uppercase a cada elemento
+    ft_lstiter(lista, to_uppercase);
+    
+    printf("Lista después de aplicar ft_lstiter con to_uppercase:\n");
+    print_list(lista);
+    
+    // Verificación: comprobar si todos los elementos están en mayúsculas
+    int all_uppercase = 1;
+    t_list *temp = lista;
+    
+    while (temp)
+    {
+        char *str = (char *)temp->content;
+        while (*str)
+        {
+            if (islower(*str))
+            {
+                all_uppercase = 0;
+                break;
+            }
+            str++;
+        }
+        if (!all_uppercase)
+            break;
+        temp = temp->next;
+    }
+    
+    if (all_uppercase)
+        printf("✓ Todos los elementos fueron convertidos a mayúsculas correctamente\n");
+    else
+        printf("✗ Error: No todos los elementos fueron convertidos a mayúsculas\n");
+    
+    // Limpieza de memoria
+    t_list *current = lista;
+    while (current)
+    {
+        t_list *next = current->next;
+        free(current->content);
+        free(current);
+        current = next;
+    }
+    
+    return 0;
+}*/
+-- ft_lstmap_bonus
+/* 
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
+
+// Función para imprimir el contenido de una lista
+void print_list(t_list *lst)
+{
+    while (lst)
+    {
+        printf("%s -> ", (char *)lst->content);
+        lst = lst->next;
+    }
+    printf("NULL\n");
+}
+
+// Función para duplicar una cadena (para usar con ft_lstmap)
+void *duplicate_str(void *content)
+{
+    char *str = (char *)content;
+    return strdup(str);
+}
+
+// Función para convertir a mayúsculas (para usar con ft_lstmap)
+void *to_uppercase(void *content)
+{
+    char *str = strdup((char *)content);
+    char *ptr = str;
+    
+    while (*ptr)
+    {
+        if (*ptr >= 'a' && *ptr <= 'z')
+            *ptr = *ptr - 32;
+        ptr++;
+    }
+    return str;
+}
+
+// Función para eliminar contenido
+void delete_content(void *content)
+{
+    free(content);
+}
+
+int main(void)
+{
+    // Prueba 1: Lista con varios elementos
+    t_list *lst = NULL;
+    t_list *new_lst;
+    
+    // Crear lista original
+    ft_lstadd_back(&lst, ft_lstnew(strdup("hola")));
+    ft_lstadd_back(&lst, ft_lstnew(strdup("mundo")));
+    ft_lstadd_back(&lst, ft_lstnew(strdup("42")));
+    
+    printf("Lista original: ");
+    print_list(lst);
+    
+    // Prueba con duplicación simple
+    new_lst = ft_lstmap(lst, duplicate_str, delete_content);
+    printf("Lista duplicada: ");
+    print_list(new_lst);
+    
+    // Prueba con transformación a mayúsculas
+    t_list *upper_lst = ft_lstmap(lst, to_uppercase, delete_content);
+    printf("Lista en mayúsculas: ");
+    print_list(upper_lst);
+    
+    // Prueba 2: Lista vacía
+    t_list *empty_lst = NULL;
+    t_list *new_empty = ft_lstmap(empty_lst, duplicate_str, delete_content);
+    printf("Lista vacía mapeada: ");
+    if (new_empty == NULL)
+        printf("NULL (correcto)\n");
+    else
+        printf("ERROR: debería ser NULL\n");
+    
+    // Limpieza
+    ft_lstclear(&lst, delete_content);
+    ft_lstclear(&new_lst, delete_content);
+    ft_lstclear(&upper_lst, delete_content);
+    
+    return 0;
+}
+*/
