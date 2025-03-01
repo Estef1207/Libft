@@ -31,32 +31,3 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	temp->next = new;
 	return ;
 }
-
-/*int main(void)
-{
-    t_list *head = NULL;
-    t_list *new_node1 = ft_lstnew("Primer nodo");
-    t_list *new_node2 = ft_lstnew("Segundo nodo");
-    t_list *new_node3 = ft_lstnew("Tercer nodo");
-
-    ft_lstadd_back(&head, new_node1);
-    ft_lstadd_back(&head, new_node2);
-    ft_lstadd_back(&head, new_node3);
-
-    t_list *temp = head;
-    while (temp != NULL)
-    {
-        printf("%s\n", (char *)temp->content);
-        temp = temp->next;
-    }
-
-    t_list *tempo;
-    while (head != NULL)
-    {
-        tempo = head;
-        head = head->next;
-        free(tempo);
-    }
-
-    return 0;
-}*/

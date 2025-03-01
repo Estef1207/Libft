@@ -15,7 +15,7 @@
 int	ft_lstsize(t_list *lst)
 {
 	int		count;
-	t_lits	*tmp;
+	t_list	*tmp;
 
 	count = 0;
 	tmp = lst;
@@ -26,25 +26,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (count);
 }
-/*int main(void)
-{
-    t_list *head = ft_lstnew("Primer nodo");
-    t_list *second = ft_lstnew("Segundo nodo");
-    t_list *third = ft_lstnew("Tercer nodo");
-
-    ft_lstadd_front(&head, second);
-    ft_lstadd_front(&head, third);
-
-    int size = ft_lstsize(head);
-    printf("El tamaño de la lista es: %d\n", size);
-
-    t_list *temp;
-    while (head != NULL)
-    {
-        temp = head;
-        head = head->next;
-        free(temp);
-    }
-
-    return 0;
-}*/
